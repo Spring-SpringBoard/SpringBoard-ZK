@@ -8,7 +8,7 @@ return {
   shortGame='SE ZK',
   modtype=1,
   depend = {  			
-  	'Zero-K v1.2.7.3',
+  	'Zero-K v1.2.9.9',
   	'Scenario Editor Core git',
   },
 }
