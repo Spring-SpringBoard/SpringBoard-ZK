@@ -1,14 +1,14 @@
 return {
-  name='Scenario Editor ZK',
-  description='Scenario Editor for Zero-K',
-  shortname='SE ZK',
+  name='Scened ZK',
+  description='Scened for Zero-K',
+  shortname='SE_ZK',
   version='git',
   mutator='Official',
-  game='Scenario Editor ZK',
-  shortGame='SE ZK',
+  game='Scened ZK',
+  shortGame='SE_ZK',
   modtype=1,
   depend = {  			
-  	'Zero-K v1.3.3.6',
-  	'Scenario Editor Core git',
+  	'Zero-K v1.3.12.1',
+  	'Scened Core git'
   },
 }
