@@ -8,7 +8,7 @@ return {
   shortGame='SE_ZK',
   modtype=1,
   depend = {  			
-  	'Zero-K v1.3.12.1',
+  	'rapid://zk:stable',
   	'Scened Core git'
   },
 }
