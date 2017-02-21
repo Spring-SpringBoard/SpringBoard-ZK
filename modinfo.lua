@@ -7,6 +7,6 @@ return {
   modtype=1,
   depend = {  			
   	'rapid://zk:stable',
-  	'rapid://sb:stable'
+  	'rapid://sbc:stable'
   },
 }
