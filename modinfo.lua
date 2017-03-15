@@ -1,12 +1,14 @@
 return {
-  name='SpringBoard ZK',
-  description='SpringBoard for Zero-K',
-  shortname='SB_ZK',
-  version='$VERSION',
-  mutator='Official',
-  modtype=1,
+  name = 'SpringBoard ZK',
+  shortName = 'SB_ZK',
+  gameName = 'SpringBoard ZK',
+  shortGame = 'SB_ZK',
+  description = 'SpringBoard for Zero-K',
+  version = '$VERSION',
+  mutator = 'Official',
+  modtype = 1,
   depend = {  			
   	'rapid://zk:stable',
-  	'rapid://sbc:stable'
+  	'rapid://sbc:test'
   },
 }
