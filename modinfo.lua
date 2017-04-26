@@ -7,8 +7,10 @@ return {
   version = '$VERSION',
   mutator = 'Official',
   modtype = 1,
-  depend = {  			
-  	'rapid://zk:stable',
-  	'rapid://sbc:test'
+  depend = {
+      'rapid://sbc:test',
+      --'SpringBoard Core $VERSION',
+      'rapid://zk:stable',
+      --'Zero-K $VERSION',
   },
 }
