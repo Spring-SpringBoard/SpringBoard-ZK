@@ -3,6 +3,7 @@ return {
         x = "48.5%",
         y = 52,
     },
-    onStartUnsynced = function()
+
+    OnStartUnsynced = function()
     end,
 }
