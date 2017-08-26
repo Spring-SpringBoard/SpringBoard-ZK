@@ -76,7 +76,7 @@ MexBridge.DrawSelected                    = function(objectID)
 end
 
 mexBridge = MexBridge()
-MexS11N = s11n:MakeNewBridge("mex")
+MexS11N = s11n:MakeNewS11N("mex")
 function MexS11N:OnInit()
     self.funcs = {
         pos = {
