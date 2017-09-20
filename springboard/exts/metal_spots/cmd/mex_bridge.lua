@@ -6,37 +6,39 @@ local function GetAllMexes()
     end
 end
 
+-- ID -> index map
+local mexIDs = {}
+local idCount = 0
+for i = 1, #GetAllMexes() do
+    idCount = idCount + 1
+    mexIDs[idCount] = i
+end
+
 local function GetMex(objectID)
-    return GetAllMexes()[objectID]
+    local index = mexIDs[objectID]
+    return GetAllMexes()[index]
 end
 
 local function GetClosestMetalSpot(x, z) --is used by single mex placement, not used by areamex
 	local bestSpot
 	local bestDist = math.huge
-	local bestIndex
-	for i = 1, #GetAllMexes() do
-		local spot = GetAllMexes()[i]
+	local bestID
+	for mexID, _ in pairs(mexIDs) do
+		local spot = GetMex(mexID)
 		local dx, dz = x - spot.x, z - spot.z
 		local dist = dx*dx + dz*dz
 		if dist < bestDist then
 			bestSpot = spot
 			bestDist = dist
-			bestIndex = i
+			bestID = mexID
 		end
 	end
-	return bestSpot, math.sqrt(bestDist), bestIndex
+	return bestSpot, math.sqrt(bestDist), bestID
 end
 
 MexBridge = ObjectBridge:extends{}
 MexBridge.humanName                    = "Mex"
 MexBridge.NoHorizontalDrag             = true
-MexBridge.GetAllObjects              = function()
-    local IDs = {}
-    for i = 1, #GetAllMexes() do
-        table.insert(IDs, i)
-    end
-    return IDs
-end
 MexBridge.ValidObject                = function(objectID)
     return GetMex(objectID) ~= nil
 end
@@ -49,7 +51,7 @@ MexBridge.GetObjectAt                  = function(x, z)
 end
 
 MexBridge.OnLuaUIAdded = function(objectID, object)
-    mexBridge.s11n:Add(object)
+    mexBridge.s11n:Add(object, objectID)
     WG.UpdateMexDrawList()
 end
 MexBridge.OnLuaUIRemoved = function(objectID)
@@ -106,11 +108,33 @@ end
 -- FIXME: Disable setting fields afterwards (faster)
 function MexS11N:CreateObject(object, objectID)
     table.insert(GetAllMexes(), object)
-    return #GetAllMexes()
+    if not objectID then
+        idCount = idCount + 1
+        objectID = idCount
+    end
+    mexIDs[objectID] = #GetAllMexes()
+    return objectID
 end
 function MexS11N:DestroyObject(objectID)
-    table.remove(GetAllMexes(), objectID)
+    -- remap ID -> index
+    local index = mexIDs[objectID]
+    mexIDs[objectID] = nil
+    for k, v in pairs(mexIDs) do
+        if v > index then
+            mexIDs[k] = v - 1
+        end
+    end
+    table.remove(GetAllMexes(), index)
 end
+
+function MexS11N:GetAllObjectIDs()
+    local IDs = {}
+    for mexID, _ in pairs(mexIDs) do
+        table.insert(IDs, mexID)
+    end
+    return IDs
+end
+
 
 mexBridge.s11n = MexS11N()
 
