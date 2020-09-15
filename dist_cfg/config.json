@@ -1,0 +1,106 @@
+{
+  "title" : "SpringBoard-ZK",
+  "dependencies" : {
+    "pngjs3": "^5.1.3"
+  },
+  "setups" : [
+    {
+      "package": {
+        "id": "latest-win",
+        "display": "Latest",
+        "platform": "win32"
+      },
+      "downloads": {
+        "games" : ["sb-zk:test", "sbc:test", "zk:stable"],
+        "resources": [
+          {
+              "url": "https://springrts.com/dl/buildbot/default/maintenance/104.0.1-1553-gd3c0012/win32/spring_%7bmaintenance%7d104.0.1-1553-gd3c0012_win32-minimal-portable.7z",
+              "destination": "engine/104.0.1-1553-gd3c0012 maintenance",
+              "extract": true
+          }
+        ]
+      },
+      "launch": {
+        "game": "rapid://sb-zk:test",
+        "map": "sb_initial_blank_10x8",
+        "engine": "104.0.1-1553-gd3c0012 maintenance",
+        "map_options": {
+          "new_map_x": 10,
+          "new_map_y": 8
+        },
+        "game_options": {
+          "MapSeed": 42
+        }
+      }
+    },
+
+    {
+      "package": {
+        "id": "latest-linux",
+        "display": "Latest",
+        "platform": "linux"
+      },
+      "downloads": {
+        "games" : ["sb-zk:test", "sbc:test", "zk:stable"],
+        "resources": [
+          {
+              "url": "https://springrts.com/dl/buildbot/default/maintenance/104.0.1-1553-gd3c0012/linux64/spring_%7bmaintenance%7d104.0.1-1553-gd3c0012_minimal-portable-linux64-static.7z",
+              "destination": "engine/104.0.1-1553-gd3c0012 maintenance",
+              "extract": true
+          }
+      ]
+      },
+      "launch": {
+        "game": "rapid://sb-zk:test",
+        "map": "sb_initial_blank_10x8",
+        "engine": "104.0.1-1553-gd3c0012 maintenance",
+        "map_options": {
+          "new_map_x": 10,
+          "new_map_y": 8
+        },
+        "game_options": {
+          "MapSeed": 42
+        }
+      }
+    },
+    {
+      "package": {
+        "id": "dev",
+        "display": "Development"
+      },
+      "downloads": {
+        "engines" : [ "104.0.1-1553-gd3c0012 maintenance" ]
+      },
+      "auto_start" : false,
+      "no_downloads" : true,
+      "load_dev_exts": false,
+      "launch": {
+        "game": "SpringBoard ZK $VERSION",
+        "map": "sb_initial_blank_10x8",
+        "map_options": {
+          "new_map_x": 10,
+          "new_map_y": 8
+        },
+        "game_options": {
+          "MapSeed": 42
+        }
+      }
+    },
+    {
+      "package": {
+        "id": "asset-download",
+        "display": "Asset Download(~1.8GB)"
+      },
+      "downloads": {
+        "resources": [
+          {
+            "url": "https://spring-launcher.ams3.digitaloceanspaces.com/core_v1.zip",
+            "destination": "springboard/assets/core-v1",
+            "extract": true
+          }
+        ]
+      }
+    }
+  ]
+
+}
