@@ -14,7 +14,7 @@
         "games" : ["sb-zk:test", "sbc:test", "zk:stable"],
         "resources": [
           {
-              "url": "https://springrts.com/dl/buildbot/default/maintenance/104.0.1-1553-gd3c0012/win32/spring_%7bmaintenance%7d104.0.1-1553-gd3c0012_win32-minimal-portable.7z",
+              "url": "https://springrts.com/dl/buildbot/default/maintenance/104.0.1-1565-g0e219ae/win32/spring_%7bmaintenance%7d104.0.1-1565-g0e219ae_win32-minimal-portable.7z",
               "destination": "engine/104.0.1-1553-gd3c0012 maintenance",
               "extract": true
           }
@@ -44,7 +44,7 @@
         "games" : ["sb-zk:test", "sbc:test", "zk:stable"],
         "resources": [
           {
-              "url": "https://springrts.com/dl/buildbot/default/maintenance/104.0.1-1553-gd3c0012/linux64/spring_%7bmaintenance%7d104.0.1-1553-gd3c0012_minimal-portable-linux64-static.7z",
+              "url": "https://springrts.com/dl/buildbot/default/maintenance/104.0.1-1565-g0e219ae/linux64/spring_%7bmaintenance%7d104.0.1-1565-g0e219ae_minimal-portable-linux64-static.7z",
               "destination": "engine/104.0.1-1553-gd3c0012 maintenance",
               "extract": true
           }
